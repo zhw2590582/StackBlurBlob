@@ -1,0 +1,16 @@
+{
+  "name": "stackBlurToUrl",
+  "version": "1.0.0",
+  "description": "Convert image to blur image url",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhw2590582/stackBlurToUrl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhw2590582/stackBlurToUrl/issues"
+  },
+  "homepage": "https://github.com/zhw2590582/stackBlurToUrl#readme"
+}
