@@ -1,34 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>stackBlurToUrl</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        html {
-            height: 100%;
-        }
+      html {
+        height: 100%;
+      }
 
-        body {
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-        }
+      body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(./banner.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #000;
+      }
+
+      .outer-box {
+        position: relative;
+        width: 800px;
+        height: 800px;
+        background-repeat: no-repeat;
+        background-image: url(./banner.png);
+      }
+
+      .inter-box {
+        cursor: move;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+        border: 2px solid #fff;
+        background-image: url(./banner.png);
+        background-repeat: no-repeat;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="outer-box">
+      <div class="inter-box"></div>
+    </div>
     <script src="./index.js"></script>
+    <script src="./draggabilly.js"></script>
     <script>
-        stackBlurToUrl('./banner.png', 100).then(url => {
-            document.body.style.backgroundImage = `url(${url})`;
+      var outer = document.querySelector('.outer-box');
+      var inter = document.querySelector('.inter-box');
+
+      stackBlurToUrl('./banner.png', 100).then(url => {
+        document.body.style.backgroundImage = `url(${url})`;
+      });
+
+      stackBlurToUrl('./banner.png', 30).then(url => {
+        inter.style.backgroundImage = `url(${url})`;
+        var draggie = new Draggabilly(inter, {
+          containment: '.outer-box'
         });
+        draggie.on('pointerUp', function(event, pointer) {
+            setTimeout(() => {
+                inter.style.backgroundPosition = `-${inter.style.left} -${inter.style.top}`;
+            }, 100);
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
