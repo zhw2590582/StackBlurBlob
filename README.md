@@ -8,7 +8,7 @@ The core code comes from here
 Install with `npm`
 
 ```
-$ npm install stackBlurToUrl
+$ npm install stack-blur-to-url
 ```
 
 Or install with `yarn`
@@ -18,13 +18,13 @@ $ yarn add stackBlurToUrl
 ```
 
 ```js
-import stackBlurToUrl from 'stackBlurToUrl';
+import stackBlurToUrl from 'stack-blur-to-url';
 ```
 
 Or umd builds are also available
 
 ```html
-<script src="path/to/stackBlurToUrl.js"></script>
+<script src="path/to/stack-blur-to-url.js"></script>
 ```
 
 Will expose the global variable to `window.stackBlurToUrl`.
